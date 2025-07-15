@@ -1,6 +1,3 @@
-# Projeto 3A: Implementação de Pilha (Stack) em C++
-
-Este projeto contém a implementação de uma **Pilha** (Stack) utilizando uma lista encadeada como estrutura base. [cite_start]Uma pilha segue a política de acesso **LIFO (Last-In, First-Out)**, o que significa que o último elemento adicionado é o primeiro a ser removido.
 
 É uma estrutura de dados essencial, usada em gerenciamento de chamadas de funções (call stack), algoritmos de backtracking, funcionalidades de "desfazer" (undo), entre outros.
 
