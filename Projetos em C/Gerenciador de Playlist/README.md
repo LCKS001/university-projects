@@ -1,10 +1,3 @@
-# Projeto 4: Gerenciador de Playlist com Lista Duplamente Circular
-
-[cite_start]Este projeto é uma implementação em C++ de um gerenciador de músicas para uma playlist, inspirado em um exercício de avaliação acadêmica (`P2_Exemplo.pdf`, Questão 1). 
-
-A estrutura escolhida foi uma **Lista Duplamente Encadeada e Circular**, pois ela modela perfeitamente o comportamento de uma playlist moderna:
-- **Navegação Bidirecional:** É possível mover para a "próxima" e para a "anterior".
-- **Loop Contínuo:** Ao avançar a partir da última música, a playlist retorna à primeira. O mesmo ocorre ao retroceder a partir da primeira, levando à última.
 
 ## Estrutura de Dados
 
