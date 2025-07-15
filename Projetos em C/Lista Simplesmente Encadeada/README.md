@@ -1,6 +1,3 @@
-# Implementação de Lista Simplesmente Encadeada em C++
-
-Este projeto contém uma implementação em C++ de uma Lista Simplesmente Encadeada, uma estrutura de dados dinâmica fundamental. O objetivo é fornecer uma classe reutilizável que encapsula as operações comuns de uma lista encadeada.
 
 ## Estrutura de Dados
 
