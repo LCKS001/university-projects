@@ -1,6 +1,4 @@
 
-É uma estrutura de dados essencial, usada em gerenciamento de chamadas de funções (call stack), algoritmos de backtracking, funcionalidades de "desfazer" (undo), entre outros.
-
 ## Operações Implementadas
 
 A classe `Pilha` oferece as seguintes operações, todas com complexidade de tempo constante:
