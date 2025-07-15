@@ -1,4 +1,4 @@
-# Implementação de Pilha (Stack) em C++
+# Projeto 3A: Implementação de Pilha (Stack) em C++
 
 Este projeto contém a implementação de uma **Pilha** (Stack) utilizando uma lista encadeada como estrutura base. [cite_start]Uma pilha segue a política de acesso **LIFO (Last-In, First-Out)**, o que significa que o último elemento adicionado é o primeiro a ser removido.
 
@@ -8,9 +8,9 @@ Este projeto contém a implementação de uma **Pilha** (Stack) utilizando uma l
 
 A classe `Pilha` oferece as seguintes operações, todas com complexidade de tempo constante:
 
-* **`push(int data)`**: Adiciona um novo elemento no topo da pilha[cite: 1681].
+* [cite_start]**`push(int data)`**: Adiciona um novo elemento no topo da pilha[cite: 1681].
     * [cite_start]*Complexidade:* $O(1)$ [cite: 1843]
-* **`pop()`**: Remove o elemento do topo da pilha[cite: 1687].
+* [cite_start]**`pop()`**: Remove o elemento do topo da pilha[cite: 1687].
     * [cite_start]*Complexidade:* $O(1)$ [cite: 1843]
 * **`top()`**: Retorna o valor do elemento no topo da pilha sem removê-lo.
     * *Complexidade:* $O(1)$
