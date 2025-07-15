@@ -1,6 +1,3 @@
-# Projeto 1: Comparativo de Algoritmos de Ordenação em C++
-
-Este projeto implementa e demonstra o funcionamento de três algoritmos de ordenação clássicos da Ciência da Computação, utilizando a linguagem C++. O objetivo é apresentar uma comparação prática entre algoritmos de complexidade quadrática e um algoritmo de complexidade logarítmica.
 
 ## Algoritmos Implementados
 
