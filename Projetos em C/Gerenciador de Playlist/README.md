@@ -8,9 +8,9 @@
 
 A classe `Playlist` oferece as seguintes operações:
 
-* [cite_start]**`incluir(int musicaID)`**: Adiciona uma nova música à playlist. [cite: 615] A nova música é inserida antes da música atual no cursor.
+**`incluir(int musicaID)`**: Adiciona uma nova música à playlist. A nova música é inserida antes da música atual no cursor.
     * *Complexidade:* $O(1)$
-* [cite_start]**`procurar(int musicaID)`**: Busca por uma música na playlist e retorna sua posição relativa. [cite: 616]
+**`procurar(int musicaID)`**: Busca por uma música na playlist e retorna sua posição relativa.
     * *Complexidade:* $O(n)$
 * **`exibir()`**: Mostra todas as músicas na playlist, em ordem, a partir da música atual.
     * *Complexidade:* $O(n)$
