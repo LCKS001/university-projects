@@ -12,11 +12,11 @@ A implementação se baseia em recursividade para percorrer e manipular a árvor
 
 ## Como Compilar e Executar
 
-Para compilar e executar o projeto, utilize os seguintes comandos:
+Como o projeto está separado em múltiplos arquivos, você precisa compilar todos os arquivos `.cpp` juntos. Use o seguinte comando:
 
 ```bash
 # Comando para compilar o projeto
-g++ main.cpp -o bst_demo
+g++ main.cpp BinarySearchTree.cpp -o bst_demo
 
 # Comando para executar o programa de demonstração
 ./bst_demo
