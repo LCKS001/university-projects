@@ -3,10 +3,10 @@
 
 A classe `Pilha` oferece as seguintes operações, todas com complexidade de tempo constante:
 
-* [cite_start]**`push(int data)`**: Adiciona um novo elemento no topo da pilha[cite: 1681].
-    * [cite_start]*Complexidade:* $O(1)$ [cite: 1843]
-* [cite_start]**`pop()`**: Remove o elemento do topo da pilha[cite: 1687].
-    * [cite_start]*Complexidade:* $O(1)$ [cite: 1843]
+**`push(int data)`**: Adiciona um novo elemento no topo da pilha.
+    * *Complexidade:* $O(1)$
+* [**`pop()`**: Remove o elemento do topo da pilha.
+    **Complexidade:* $O(1)$ 
 * **`top()`**: Retorna o valor do elemento no topo da pilha sem removê-lo.
     * *Complexidade:* $O(1)$
 * **`estaVazia()`**: Verifica se a pilha está vazia.
