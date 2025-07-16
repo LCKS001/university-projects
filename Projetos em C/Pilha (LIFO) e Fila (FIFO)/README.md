@@ -5,7 +5,7 @@ A classe `Pilha` oferece as seguintes operações, todas com complexidade de tem
 
 **`push(int data)`**: Adiciona um novo elemento no topo da pilha.
     * *Complexidade:* $O(1)$
-* [**`pop()`**: Remove o elemento do topo da pilha.
+* **`pop()`**: Remove o elemento do topo da pilha.
     **Complexidade:* $O(1)$ 
 * **`top()`**: Retorna o valor do elemento no topo da pilha sem removê-lo.
     * *Complexidade:* $O(1)$
