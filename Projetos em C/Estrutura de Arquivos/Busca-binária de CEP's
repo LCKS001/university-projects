@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+    char logradouro[72];
+    char bairro[72];
+    char cidade[72];
+    char uf[72];
+    char sigla[2];
+    char cep[8];
+    char lixo[2];
+} Endereco;
+
+int main(int argc, char **argv)
+{
+    FILE *arq;
+    Endereco e;
+    char cepBuscado[9];
+
+    long inicio, fim, meio;
+    long qtdRegistros;
+
+    if(argc != 2)
+    {
+        printf("Uso: %s cep.dat\n", argv[0]);
+        return 1;
+    }
+
+    arq = fopen(argv[1], "rb");
+
+    if(arq == NULL)
+    {
+        printf("Erro ao abrir arquivo.\n");
+        return 1;
+    }
+
+    printf("Digite o CEP: ");
+    scanf("%8s", cepBuscado);
+
+    fseek(arq, 0, SEEK_END);
+
+    qtdRegistros = ftell(arq) / sizeof(Endereco);
+
+    inicio = 0;
+    fim = qtdRegistros - 1;
+
+    while(inicio <= fim)
+    {
+        meio = (inicio + fim) / 2;
+
+        fseek(arq, meio * sizeof(Endereco), SEEK_SET);
+
+        fread(&e, sizeof(Endereco), 1, arq);
+
+        int cmp = strncmp(cepBuscado, e.cep, 8);
+
+        if(cmp == 0)
+        {
+            printf("\nCEP encontrado!\n");
+
+            printf("Logradouro: %.72s\n", e.logradouro);
+            printf("Bairro: %.72s\n", e.bairro);
+            printf("Cidade: %.72s\n", e.cidade);
+            printf("UF: %.72s\n", e.uf);
+            printf("CEP: %.8s\n", e.cep);
+
+            fclose(arq);
+            return 0;
+        }
+        else if(cmp < 0)
+        {
+            fim = meio - 1;
+        }
+        else
+        {
+            inicio = meio + 1;
+        }
+    }
+
+    printf("CEP nao encontrado.\n");
+
+    fclose(arq);
+
+    return 0;
+}
