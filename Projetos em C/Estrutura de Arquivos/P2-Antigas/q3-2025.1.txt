@@ -1,0 +1,91 @@
+int insere(Produto p) {
+	long pos;
+	if(bplus_search(arvore_bplus,p.codigo,&pos)==0)
+	{
+		// Nao esta na arvore pode inserir;
+		// Vai ate o final
+		fseek(arquivo_dados,0,SEEK_END);
+		// ver a posicao
+		pos = ftell(arquivo_dados);
+		// escreve o produto
+		fwrite(&p,sizeof(Produto),1,arquivo_dados);
+		// inserir na arvore p.codigo e a posicao
+		bplus_insert(arvore_bplus,p.codigo,pos);
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+
+void busca(int codigo) {
+	long pos;
+	Produto p;
+	if(bplus_search(arvore_bplus,codigo,&pos)==1)
+	{
+		fseek(arquivo_dados,pos),SEEK_SET);
+		fread(&p,sizeof(Produto),1,arquivo_dados);
+		// Imprime p		
+	}
+}
+
+void imprimir_produto(int codigo, long posicao) {
+	fseek(arquivo_dados,pos),SEEK_SET);
+	fread(&p,sizeof(Produto),1,arquivo_dados);
+	// Imprime p		
+}
+
+
+void lista() {
+	bplus_traverse(arvore_bplus, imprimir_produto);
+}
+
+
+N*V + N* Pr + (N+1) * Pb <= 512
+9N + 7N + (N+1)*6 <= 512
+22N <= 512-6
+22N <= 506
+N <= 506/22
+N <= 23
+
+
+FILE *a1 = fopen("a1.txt","r"); FILE *a2 = fopen("a2.txt","r"); FILE *a3 = fopen("a3.txt","w");
+char str1[82]; char str2[82];
+fgets(str1,82,a1);
+fgets(str2,82,a2);
+while(!feof(a1) && !feof(a2)) {
+
+	if(strcmp(str1,str2)==0) { // Sao Iguais
+		fgets(str1,82,a1);
+		fgets(str2,82,a2);
+	}
+	else if(strcmp(str1,str2)>0) { // str1 > str2
+			fgets(str2,82,a2);
+	}
+	else if(strcmp(str1,str2)<0) { // str1 < str2
+		fputs(str1,a3);
+		fgets(str1,82,a1);		
+	}
+
+}
+fclose(a1);
+fclose(a2);
+fclose(a3);
+
+
+
+Apague todos os ponteiros prox.
+Para cada chave que está na área de colisao.
+	pos = h(chave)
+	prox = tabela[pos].prox
+	procura posicao vazia (pv)
+	tabela[pv].chave = chave
+	tabela[pv].valor = valor
+	tabela[pv].prox = prox
+	tabela[pos].prox = pv
+	
+	
+
+
+
+
