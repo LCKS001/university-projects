@@ -1,0 +1,32 @@
+Questao 1
+(a) Na arvore B, dados podem ficar em nos internos e folhas. Na B+, os dados reais ficam nas
+folhas e os nos internos possuem apenas chaves de separacao.
+(b) A B+ centraliza todos os registros nas folhas encadeadas, permitindo buscas por igualdade e
+percursos sequenciais eficientes sem percorrer a estrutura interna.
+(c) Hash usa uma funcao que calcula diretamente uma posicao a partir da chave. A ordem de
+insercao nao corresponde a uma relacao de ordem e colisao pode reorganizar encadeamentos.
+(d) Dados ja compactados ja tem baixa redundancia. Huffman explora frequencias: sem um
+padrao muito desigual de frequencias, quase nao ha ganhos, e a tabela/cabecalho pode aumentar o arquivo.
+
+Questao 2 - tabela hash h(k)=k mod 11
+Usando insercao no inicio das listas e seguintes valores de exemplo:
+Posicao | chave | valor | prox
+0 | 55 | V55 | 0
+1 | 34 | V34 | 0
+3 | 70 | V70 | 0
+4 | - | - | 0
+5 | 38 | V38 | 6
+6 | 27 | V27 | 0
+7 | 84 | V84 | 0
+10 | 43 | V43 | 1
+1 | 34 | V34 | 0
+Nota: 21 vai para 10, ficando na frente: 21 -> 43. 27 na posicao 5, depois 38 na frente.
+Tabela compacta final:
+0 55->0
+1 34->0
+3 70->0
+5 38->6
+6 27->0
+7 84->0
+10 21->11
+11 43->0

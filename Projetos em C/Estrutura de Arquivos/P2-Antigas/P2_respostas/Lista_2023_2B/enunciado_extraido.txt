@@ -1,0 +1,20 @@
+---PAGE 1---
+ORG EST ARQUIVOS
+Prof. Renato Mauro
+1. Suponha que o campo de busca de uma ´arvore B seja de tamanho V = 9bytes, o tamanho
+do bloco de disco seja B = 512bytes, um ponteiro de registro (para o arquivo de dados)
+seja Pr = 7bytes, e um ponteiro de bloco (para as outras p´aginas da ´arvore B) seja Pb = 6
+bytes. Cada n´o da ´arvore B possui no m´aximo n ponteiros de ´arvore, n − 1 ponteiros de
+dados e n − 1 valores de campos-chave de busca que devem caber em um ´unico bloco de
+disco.
+(a) Estime o valor de n.
+(b) Quantas chaves cabem no m´aximo e no m´ınimo em um bloco n˜ao raiz?
+(c) Suponha que em uma determinada ´arvore B, sabe-se que todos os n´os tˆem em m´edia
+70% de ocupa¸c˜ao. Indique no terceiro n´ıvel da ´arvore a quantidade de chaves ar-
+mazenadas.
+2. Responda objetivamente:
+(a) Em uma tabela de hash onde h(chave) = chave%11, ao inserir as chaves 10, 33, 85,
+43, 27, 63, 95, 88 e 32, quantas colis˜oes ocorrem?
+(b) Quantas chaves precisam ser inseridas (no m´ınimo) em uma ´arvore B de grau 3 para
+atingir altura 3?
+BONS ESTUDOS!!

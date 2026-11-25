@@ -1,0 +1,51 @@
+Questao 1 - Huffman
+Construindo por menores frequencias:
+(A4+B7) = 11
+(C10+D15) = 25
+(E20+F28) = 48
+(G33+H47) = 80
+Depois (11+25)=36
+Depois (36+48)=84
+Depois (84+80)=164
+
+Uma atribuicao valida:
+A: 0000
+B: 0001
+C: 0010
+D: 0011
+E: 010
+F: 011
+G: 10
+H: 11
+
+Questao 2 - hash h(k)=k mod 11
+18->7, 29->7, 40->7, 63->8, 24->2, 35->2, 46->2,
+10->10, 21->10, 32->10.
+Inserindo novos na area de colisao e na frente da lista primaria:
+Pos | chave | valor | prox
+7 | 18 | V18 | 12
+11 nao usado | - | - | 0
+12 | 29 | V29 | 13
+13 | 40 | V40 | 0
+Observacao: com a regra "novo logo apos a primaria", a 29 entra em 12 e a 40 em 13,
+encadeada 7 -> 12 -> 13.
+2:24 -> 14 -> 35 ->15 ->46
+8:63
+10:10 ->16 ->21 ->17 ->32
+total collisions = 7 (29,40,35,46,21,32) plus maybe 24? 24 first no, 24 pos2. 18 first 7. So 6? 29/40 2,35/46 2,21/32 2 =6.
+Majores size 3: posicoes 2,7,10. Posicao primaria 7 nao 0.
+
+Questao 3
+(a) B: dados/chaves podem estar em internos e folhas. B+: dados reais nas folhas,
+internos armazenam separadores. B+ e melhor para percursos sequenciais.
+(b) Hash oferece acesso O(1) medio por igualdade, mas nao mantem ordem e intervalos sao
+ineficientes. Tamanho e fator de carga exigem reestruturacao.
+(c) Heap permite retirar rapidamente as duas menores frequencias em O(log n).
+(d) Split divide uma pagina saturada em duas ao menos 50% ocupadas (exceto casos de
+contrato/excecoes), promovendo uma chave de separacao.
+
+Questao 4
+O item c exige indexar somente arquivo1. Para cada registro de arquivo2, busca no indice
+de arquivo1 e escreve em saida apenas ausentes.
+Custo esperado: indexacao: O(n1 log_b n1), leitura de arquivo2: O(n2),
+buscas: O(n2 log_b n1), escritas: O(k), com k registros da diferenca.

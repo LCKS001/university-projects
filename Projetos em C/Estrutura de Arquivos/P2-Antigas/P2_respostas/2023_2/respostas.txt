@@ -1,0 +1,27 @@
+Questao 1
+No texto extraido nao aparece a arvore inicial. Nao e possivel redesenha-la com certeza.
+Com uma arvore B de grau5:
+- 17: folha [17]
+- inserir 6: [6,17]
+- inserir21: [6,17,21]
+- inserir67 em um no com maximo4: [6,17,21,67], ainda no mesmo no.
+
+Questao 2
+Arvore original nao aparece no texto extraido. Por isso removals nao podem ser
+redesenhadas com certeza sem a estrutura da questao.
+
+Questao 3
+Alternativa (c): duas chaves diferentes produzem o mesmo indice.
+
+Questao 4
+Encadeamento externo: cada entrada primaria aponta para o inicio de uma lista.
+Exemplo h=3 para 14 e25. A posicao3 recebe14 e o registro25 entra na area de colisao
+e aponta 14 no proprio encadeamento. Evita sobrescrever o registro original.
+
+Questao 5
+O codigo fornecido utiliza hashSize registros na tabela e registros adicionais na area
+de colisao. A resposta C conta todos os registros validos desde o offset hashSize*recordSize.
+
+Questao 6
+O algoritmo implementado em respostas.c faz a intercalacao em complexidade linear no
+total de linhas, remove duplicados em ambos e copia todas as linhas presentes somente em a1.

@@ -1,0 +1,82 @@
+---PAGE 1---
+ORGANIZAC¸ ˜AO DE ESTRUTURAS DE ARQUIVOS
+Prof. Renato Mauro
+PROVA 2 - 03/07/2025 - VALOR: 6,0 pts
+Nome: N´umero:
+1. (1,2 pontos - 0,3 cada) Responda objetivamente:
+(a) Explique a principal diferen¸ca estrutural entre uma ´arvore B e uma ´arvore B+ quanto ao armazenamento
+de dados e sua recupera¸c˜ao.
+(b) Justifique por que as ´arvores B+ s˜ao preferidas em sistemas de banco de dados e arquivos indexados,
+considerando aspectos de eficiˆencia de busca.
+(c) Por que a ordem de inser¸c˜ao dos elementos n˜ao ´e mantida quando se utiliza um ´ındice baseado em hashing?
+Relacione com a forma como a estrutura funciona internamente.
+(d) Explique por que arquivos que j´a foram compactados apresentam baixo ganho adicional ao serem submetidos
+novamente a m´etodos de compress˜ao baseados em frequˆencia de s´ımbolos, como o Huffman.
+2. (0,8 pontos) Vocˆe deve construir manualmente uma tabela de hash com 11 posi¸c˜oes iniciais (´ındices de 0 a
+10), onde as colis˜oes s˜ao tratadas por encadeamento externo armazenado na pr´opria tabela. Sempre
+que houver colis˜ao, o novo elemento deve ser adicionado no in´ıcio da lista encadeada, para evitar percursos
+desnecess´arios. Cada entrada da tabela possui 3 colunas: Chave, Valor e Pr´oximo. A coluna pr´oximo armazena
+o ´ındice do pr´oximo elemento da lista encadeada (ou 0 se for o fim da lista). Invente valores associado `as chaves.
+Use como fun¸c˜ao de Hash h(k) = k mod 11. Sequˆencia de inser¸c˜ao (nesta ordem):
+43, 27, 34, 70, 21, 84, 55, 38
+3. (4,0 pontos. 1,0 cada fun¸c˜ao) Vocˆe deve implementar um sistema de cat´alogo de produtos utilizando uma
+estrutura de ´arvore B+ para indexa¸c˜ao e um arquivo bin´ario de dados para armazenar os registros. O
+sistema deve manter a ´arvore B+ com as chaves sendo o codigo dos produtos, e os valores associados sendo a
+posi¸c˜ao do registro no arquivo. Considere as seguintes premissas:
+• O arquivo de dados j´a est´a aberto no modo apropriado e dispon´ıvel na vari´avel global arquivo dados.
+• A ´arvore B+ j´a est´a implementada com fun¸c˜oes procedurais no estilo C e est´a acess´ıvel via um ponteiro
+global arvore bplus.
+Implemente as trˆes fun¸c˜oes descritas abaixo:
+1. int insere(Produto p);
+Insere um produto no arquivo e na ´arvore B+. Verifica se o codigo j´a existe utilizando a ´arvore. Se n˜ao
+existir, escreve o produto no final do arquivo e armazena a posi¸c˜ao na ´arvore. Retorna 1 se conseguiu
+inserir, 0 caso contr´ario.
+2. void busca(int codigo);
+Busca um produto na ´arvore B+ e, se encontrado, lˆe no arquivo os dados correspondentes e imprime na
+tela.
+3. void lista();
+Lista todos os produtos em ordem crescente de c´odigo utilizando um percurso na ´arvore B+.
+Utilize o esqueleto abaixo como ponto de partida:
+---PAGE 2---
+1 #include <stdio.h>
+2 #include <string.h>
+3
+4 typedef struct {
+5 int codigo;
+6 char descricao[40];
+7 float preco;
+8 } Produto;
+9
+10 // Vari´aveis globais
+11 FILE *arquivo dados; // Arquivo de dados j´a aberto
+12 void *arvore bplus; // Ponteiro para a ´arvore B+ inicializada
+13
+14 // −−− Assinaturas das func¸˜oes da ´arvore B+ −−−
+15 // (assuma que essas func¸˜oes j´a est˜ao implementadas em outro m´odulo)
+16 int bplus insert(void *arvore, int chave, long posicao);
+17 // Retorna 1 se inseriu, 0 se j´a existia
+18 int bplus search(void *arvore, int chave, long *posicao);
+19 // Retorna 1 se achou, 0 se n˜ao
+20 void bplus traverse(void *arvore, void (*callback)(int chave, long posicao));
+21
+22 int insere(Produto p) {
+23 // Verificar se c´odigo j´a existe na ´arvore
+24 // Se n˜ao existir, escreve no final do arquivo e insere na ´arvore
+25 return 0; // Retorna 1 se inserido com sucesso, 0 se o c´odigo j´a existia.
+26 }
+27
+28 void busca(int codigo) {
+29 // Usar a ´arvore B+ para obter a posic¸˜ao no arquivo
+30 // Buscar no arquivo e imprimir
+31 }
+32
+33 void lista() {
+34 // Usar bplus traverse para percorrer e imprimir os produtos
+35 // Requer func¸˜ao callback auxiliar
+36 }
+37
+38 // Func¸˜ao callback usada pela ´arvore B+ durante a listagem
+39 void imprimir produto(int codigo, long posicao) {
+40 // Ler produto da posic¸˜ao e imprimir
+41 }
+BOA PROVA!

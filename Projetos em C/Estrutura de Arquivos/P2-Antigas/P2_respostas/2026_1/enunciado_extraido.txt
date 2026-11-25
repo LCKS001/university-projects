@@ -1,0 +1,139 @@
+---PAGE 1---
+ORGANIZAC¸ ˜AO DE ESTRUTURAS DE ARQUIVOS
+Prof. Renato Mauro
+PROVA 2 - 2026.1 - VALOR: 6,0 pts
+Nome: N´umero:
+1. (1,0 ponto) Um arquivo possui os s´ımbolos abaixo,
+com suas respectivas frequˆencias:
+S´ımbolo A B C D E F G H
+Frequˆencia 4 7 10 15 20 28 33 47
+Construa manualmente uma ´arvore de Huﬀman para
+esses s´ımbolos. N˜ao ´e necess´ario apresentar o algo-
+ritmo, apenas a constru¸c˜ao ﬁnal da ´arvore e o c´odigo
+bin´ario atribu´ıdo a cada s´ımbolo. Em caso de em-
+pate, escolha qualquer uma das alternativas poss´ıveis,
+desde que a ´arvore constru´ıda seja ´otima.
+S´ımbolo C´odigo
+A
+B
+C
+D
+E
+F
+G
+H
+2. (1,0 ponto) Construa uma tabela de hash com 11
+posi¸c˜oes prim´arias, numeradas de 0 a 10. As co-
+lis˜oes devem ser tratadas por encadeamento ex-
+terno, usando uma ´area de colis˜ao no mesmo ar-
+quivo, a partir da posi¸c˜ao 11. Cada entrada possui
+trˆes campos: Chave, Valor e Pr´oximo. O campo
+Pr´oximo deve armazenar o ´ındice do pr´oximo ele-
+mento da lista ou 0 quando n˜ao houver pr´oximo ele-
+mento.
+Use a fun¸c˜ao de hash h(k) = k mod 11. Sempre que
+houver colis˜ao, coloque o novo registro na pr´oxima
+posi¸c˜ao livre da ´area de colis˜ao e encadeie-o logo ap´os
+a entrada prim´aria correspondente. Invente valores
+associados `as chaves. Insira, nesta ordem:
+18, 29, 40, 63, 24, 35, 46, 10, 21, 32
+(a) Apresente a tabela ﬁnal, incluindo as posi¸c˜oes
+da ´area de colis˜ao que forem utilizadas.
+(b) Informe quantas colis˜oes ocorreram.
+(c) Informe o tamanho da maior lista encadeada e
+indique em qual posi¸c˜ao prim´aria ela come¸ca.
+Posi¸c˜ao Chave Valor Pr´oximo
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+3. (1,2 ponto - 0,3 cada) Responda objetivamente:
+(a) Explique a diferen¸ca entre ´arvore B e ´arvore B+.
+Em sua resposta, indique onde ﬁcam armazena-
+das as chaves e os dados em cada estrutura e o
+que torna a ´arvore B+ mais eﬁciente para arqui-
+vos indexados.
+(b) Explique vantagens e desvantagens de usar uma
+estrutura de hash como ´ındice. Relacione sua
+resposta com consultas por igualdade, consultas
+por intervalo e manuten¸c˜ao da ordena¸c˜ao.
+(c) Por que se usa um heap na constru¸c˜ao de uma
+´arvore de Huﬀman? Explique qual opera¸c˜ao o
+heap torna eﬁciente durante a constru¸c˜ao.
+(d) Na inser¸c˜ao de uma chave em uma ´arvore B,
+explique como a opera¸c˜ao de divis˜ao de p´agina
+(split) garante o requisito m´ınimo de 50% de
+ocupa¸c˜ao dos n´os n˜ao raiz.
+---PAGE 2---
+4. (2,8 pontos) Considere dois arquivos bin´arios de re-
+gistros de tamanho ﬁxo, ambos com registros no se-
+guinte formato:
+1 typedef struct {
+2 long chave;
+3 char dados[1000];
+4 } Registro;
+Considere tamb´em que uma ´arvore B j´a est´a imple-
+mentada e que as seguintes fun¸c˜oes est˜ao dispon´ıveis:
+1 void* openTree(const char* nomeArquivo);
+2 bool findKey(void* tree, long key, long* offset);
+3 void insertKey(void* tree, long key, long offset);
+4 void closeTree(void* tree);
+O valor associado a cada chave na ´arvore deve ser
+o oﬀset em bytes do registro dentro do arquivo de
+dados. Vocˆe n˜ao precisa implementar a ´arvore B nem
+tratar detalhes internos de balanceamento.
+(a) (0,8) Implemente uma fun¸c˜ao que receba o nome
+de um arquivo de dados e o nome de um arquivo
+de ´ındice e construa o ´ındice correspondente. A
+fun¸c˜ao deve ler o arquivo de registros sequenci-
+almente e inserir na ´arvore B a chave e o oﬀset
+de cada registro.
+(b) (0,6) Implemente uma fun¸c˜ao que, dado o nome
+do arquivo de dados, o nome do ´ındice e uma
+chave, imprima o campo dados do registro cor-
+respondente. Caso a chave n˜ao exista, imprima
+uma mensagem adequada.
+(c) (1,0) Implemente uma fun¸c˜ao que receba dois
+arquivos de dados, arquivo1 e arquivo2, e gere
+um terceiro arquivo contendo todos os registros
+cujas chaves est˜ao em arquivo2, mas n˜ao est˜ao
+em arquivo1. Use uma ´arvore B como ´ındice
+para tornar a veriﬁca¸c˜ao eﬁciente.
+(d) (0,4) Explique brevemente qual ´e o custo espe-
+rado da solu¸c˜ao do item anterior em termos do
+n´umero de registros dos dois arquivos e do custo
+de busca na ´arvore B.
+1 #include <stdio.h>
+2 #include <stdbool.h>
+3
+4 void indexaArquivo(const char* nomeDados, const char
+* nomeIndice) {
+5 // implementar
+6 }
+7
+8 void imprimeDados(const char* nomeDados, const char*
+nomeIndice, long chave) {
+9 // implementar
+10 }
+11
+12 void diferencaArquivos(const char* arquivo1,
+13 const char* arquivo2,
+14 const char* indiceArquivo1,
+15 const char* arquivoSaida) {
+16 // implementar
+17 }
+BOA PROVA!

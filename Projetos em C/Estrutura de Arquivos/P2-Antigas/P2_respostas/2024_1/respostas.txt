@@ -1,0 +1,31 @@
+Questao 1
+Nao foi possivel recuperar a arvore original do PDF extraido. Portanto, os itens abaixo
+usam a representacao indicada no enunciado e nao uma imagem inexistente no texto.
+Com a figura original deve-se:
+(a) usar como raiz separadores, chaves medianas ou promovidas obtidas pela divisao dos nos;
+(b) inserir 130 no bloco mais a direita e dividir se houver mais de 4 chaves;
+(c) remover 80 e rebalancear por redistribuicao ou fusao com o irmao.
+
+Questao 2
+Folhas no nivel 7, raiz no nivel0. Na insercao pode haver split da folha, depois dos pais
+ate a raiz. Como nao ha limite de split acima da raiz, no pior caso cria-se uma pagina
+nova em cada um dos 7 caminhos folha->raiz: folha, no nivel6,5,4,3,2,1 e raiz = 8 paginas.
+Assim, o numero maximo de novas paginas criadas sao 8. Tambem pode haver criacao de raiz,
+pois raiz e no pai nao contam como pagina folha intermediaria.
+
+Questao 3
+A colisao ocorre quando duas chaves produzem o mesmo indice hash.
+Estrutura do registro: chave, ponteiroDados, ponteiroProximo.
+O ponteiroProximo inicial vale zero.
+
+Questao 4
+Calculo h(k)=k mod11:
+10=10,27=5,34=1,41=8,67=1,86=9,17=6,38=5,72=6,49=5.
+Pos 1:34,67
+Pos 5:27,38,49
+Pos6:17,72
+Pos9:86
+Pos10:10
+Pos8:41
+Houve 4 colisoes adicionais (67,38,72,49).
+Maior lista: posicao5, tamanho3.

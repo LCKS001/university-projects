@@ -1,0 +1,18 @@
+Questao 1
+Estrutura: typedef struct { unsigned int codigoMunicipio; unsigned int posicao; } IndiceClustering;
+Percorra o arquivo sequencialmente. Para cada Registro r, compare getCodMunicipio(r)
+com o codigo anterior. Quando mudar, registre posicao atual/ftell no arquivo e codigo.
+O tamanho estimado e 5700*8=45600 bytes.
+
+Questao 2
+(a) n*6 + (n-1)*(9+7) <=512
+n*6+(n-1)*16 <=512
+22n <=528
+n <=24.
+Valor adequado: n=24.
+(b) Maximo:23 chaves. Minimo de ocupacao nao raiz: teto((n-1)/2)=ceil(23/2)=12 chaves.
+(c) 70% em todos os nos. Nivel1 raiz, nivel2 24 no caso representado, nivel3 uma faixa
+30? A pergunta de quantidade no terceiro nivel precisa da quantidade de filhos da raiz.
+Como aproximacao, com 70% em cada no nao-raiz e 23 chaves/maximo23, no terceiro nivel:
+70%*16 ponteiros filhos por no de nivel2. Quantidade estimada depende da raiz; nao ha
+dados suficientes no enunciado para um numero unico.

@@ -1,0 +1,78 @@
+---PAGE 1---
+ORGANIZAC¸ ˜AO DE ESTRUTURAS DE ARQUIVOS
+P2 - 2024.2 - BCC - PROF. RENATO MAURO
+Nome: Nº:
+1. Considere uma ´arvore B de grau 5 (ou seja, cada n´o pode conter no m´aximo 4 chaves e no m´ınimo
+2 chaves, exceto a raiz, que pode ter menos). Sua tarefa ´e realizar a inser¸c˜ao das chaves na ordem
+especificada abaixo e desenhar a estrutura da ´arvore B ap´os cada inser¸c˜ao at´e que a ´arvore atinja
+altura 3. A altura de uma ´arvore B ´e medida pela quantidade de n´ıveis, considerando que um n´o
+isolado tem altura 1. Sequˆencia de chaves a serem inseridas: 20, 40, 10, 50, 30, 60, 70, 80, 90, 25, 35,
+45, 55, 65, 75, 85, 95.
+• Realize as inser¸c˜oes uma por uma e represente graficamente a ´arvore ap´os cada inser¸c˜ao
+significativa (isto ´e, sempre que houver divis˜ao de n´os).
+• Ap´os atingir altura 3, pare a inser¸c˜ao e apresente a ´arvore resultante.
+• Explique brevemente o processo de divis˜ao de n´os e como a ´arvore mant´em suas propriedades.
+2. Construa uma tabela de hash utilizando a fun¸c˜ao de dispers˜ao h(k) = k%11 e utilizando encade-
+amento externo para tratar colis˜oes. Cada entrada da tabela deve armazenar a chave e o ´ındice do
+pr´oximo elemento no encadeamento. Sequˆencia de chaves a serem inseridas: 15, 26, 37, 48, 59, 70, 81,
+92, 103, 114.
+• Calcule os ´ındices das chaves na tabela de acordo com a fun¸c˜ao h(k).
+• Simule a inser¸c˜ao das chaves na tabela, registrando os encadeamentos em caso de colis˜ao.
+• Apresente a tabela final, incluindo os ponteiros para os pr´oximos elementos encadeados.
+• Explique brevemente como a t´ecnica de encadeamento externo funciona e como os elementos s˜ao
+armazenados.
+3. Escreva um algoritmo que identifique a posi¸c˜ao da tabela de hash com o maior n´umero de colis˜oes. A
+tabela de hash est´a implementada em um arquivo cujo registro tem trˆes campos: a chave, a posi¸c˜ao
+no arquivo de dados e o ´ındice no arquivo para o pr´oximo elemento no encadeamento. Considere que
+n˜ao haja empate no maior tamanho da lista de encadeamento externo. Use como base o modelo de
+c´odigo utilizado em aula.
+4. Em uma ´arvore B+, onde s˜ao armazenadas as chaves reais?
+(a) Apenas nos n´os internos
+(b) Apenas nas folhas
+(c) Nos n´os internos e folhas
+(d) Apenas na raiz
+(e) Nenhuma das anteriores
+5. Qual ´e a principal vantagem da ´arvore B+ sobre a ´arvore B?
+(a) Melhor eficiˆencia na busca sequencial
+(b) Menor n´umero de ponteiros entre os n´os
+(c) Maior flexibilidade no armazenamento de dados
+(d) Maior complexidade no balanceamento
+(e) Todas as anteriores
+---PAGE 2---
+6. Qual das seguintes caracter´ısticas ´e exclusiva da ´arvore B e n˜ao da ´arvore B+?
+(a) Armazenamento das chaves nos n´os internos
+(b) Existˆencia de ponteiros de encadeamento nas folhas
+(c) Busca eficiente por meio de n´os internos
+(d) Apenas folhas contˆem dados reais
+(e) Nenhuma das anteriores
+hashSize = 900001
+fileName = "data/cep.dat"
+indexName = "data/cep-hash.dat"
+dataFormat = "72s72s72s72s2s8s2s"
+indexFormat = "8sLL"
+keyColumnIndex = 5
+def h(key):
+return int(hashlib.sha1(key).hexdigest(),16)%hashSize
+dataStruct = struct.Struct(dataFormat)
+indexStruct = struct.Struct(indexFormat)
+fi = open(indexName,"rb")
+f = open(fileName,"rb")
+cepProcurado = b"22071020"
+p = h(cepProcurado)
+offset = p*indexStruct.size
+i = 1
+while True:
+fi.seek(offset,os.SEEK_SET)
+indexRecord = indexStruct.unpack(fi.read(indexStruct.size))
+if indexRecord[0] == cepProcurado:
+f.seek(indexRecord[1]*dataStruct.size,os.SEEK_SET)
+record = dataStruct.unpack(f.read(dataStruct.size))
+print(record)
+print(i)
+break
+offset = indexRecord[2]
+if offset == 0:
+break
+i += 1
+fi.close()
+BOA PROVA!!

@@ -1,0 +1,69 @@
+---PAGE 1---
+ORGANIZAC¸ ˜AO DE ESTRUTURAS DE ARQUIVOS
+Prof. Renato Mauro
+PROVA 2 - 23/11/2023 - VALOR: 6,0 pts
+Nome: N´umero:
+1. Dado a ´arvore B de grau 5 (5 ponteiros, 4 chaves por bloco), mostre passo a passo cada ´arvore modificada ap´os
+a inser¸c˜ao das chaves 17, 6, 21, 67, nesta ordem. (1,0 ponto – 0,25 cada chave).
+2. Dado uma ´arvore B de grau 4 (4 ponteiros, 3 chaves por bloco), mostre passo a passo cada ´arvore modificada
+ap´os a remo¸c˜ao das chaves 90, 92, 75, 60, nesta ordem. (1,0 ponto – 0,25 cada chave).
+3. O que ´e colis˜ao no contexto da implementa¸c˜ao de tabela hash? Escolha a melhor defini¸c˜ao, justificando sua
+resposta: (0,5)
+(a) Dois pares chave-valor que tˆem chaves iguais, mas valores diferentes.
+(b) Dois pares chave-valor que tˆem chaves diferentes e fazem hash para ´ındices diferentes.
+(c) Dois pares chave-valor que tˆem chaves diferentes, mas fazem hash para o mesmo ´ındice.
+(d) Dois pares chave-valor que tˆem chaves iguais, mas fazem hash para ´ındices diferentes.
+4. Explique como as colis˜oes s˜ao tratadas por encadeamento externo. Dˆe um exemplo. (0,5 ponto)
+5. Dado a implementa¸c˜ao de hash trabalhada em aula (c´odigo abaixo), escreva um utilit´ario que imprima na sa´ıda
+padr˜ao a quantidade de chaves armazenadas na ´area de colis˜ao. Abaixo o trecho de c´odigo que realiza a cria¸c˜ao
+do ´ındice, inserido apenas relembrar a estrutura do hash. (1,5 pontos)
+6. A intercala¸c˜ao consiste em combinar dois arquivos ordenados em um ´unico arquivo tamb´em ordenado. Este
+m´etodo pode ser usado para realizar opera¸c˜oes de conjuntos sobre arquivos, como interse¸c˜ao ou diferen¸ca.
+Dados dois arquivos a1.txt e a2.txt contendo Strings de at´e 80 caracteres, j´a ordenados, produza um terceiro
+arquivo a3.txt, com a diferen¸ca entre a1 e a2, ou seja, todas as linhas de a1 que n˜ao estejam em a2. (1,5 pontos)
+BOA PROVA!!
+---PAGE 2---
+import struct
+import hashlib
+import os
+hashSize = 900001
+fileName = "data/cep.dat"
+indexName = "data/cep-hash.dat"
+dataFormat = "72s72s72s72s2s8s2s"
+indexFormat = "8sLL"
+keyColumnIndex = 5
+dataStruct = struct.Struct(dataFormat)
+indexStruct = struct.Struct(indexFormat)
+def h(key):
+return int(hashlib.sha1(key).hexdigest(),16)%hashSize
+fi = open(indexName,"wb")
+emptyIndexRecord = indexStruct.pack(b"",0,0)
+for i in range(0,hashSize):
+fi.write(emptyIndexRecord)
+fi.close()
+f = open(fileName,"rb")
+fi = open(indexName,"r+b")
+fi.seek(0,os.SEEK_END)
+fileIndexSize = fi.tell()
+recordNumber = 0
+while True:
+line = f.read(dataStruct.size)
+if len(line) == 0: # EOF
+break
+record = dataStruct.unpack(line)
+key = record[keyColumnIndex]
+p = h(key)
+fi.seek(p*indexStruct.size,os.SEEK_SET)
+indexRecord = indexStruct.unpack(fi.read(indexStruct.size))
+fi.seek(p*indexStruct.size,os.SEEK_SET)
+if indexRecord[0][0] == b"\0":
+fi.write(indexStruct.pack(key,recordNumber,0))
+else:
+nextPointer = indexRecord[2]
+fi.write(indexStruct.pack(indexRecord[0],indexRecord[1],fileIndexSize))
+fi.seek(0,os.SEEK_END)
+fi.write(indexStruct.pack(key,recordNumber,nextPointer))
+fileIndexSize = fi.tell()
+recordNumber += 1
+f.close()
+fi.close()

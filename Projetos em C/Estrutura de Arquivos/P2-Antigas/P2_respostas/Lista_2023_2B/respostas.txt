@@ -1,0 +1,18 @@
+Questao 1
+Usando n=24, maximo23 chaves e minimo12 chaves em no nao raiz.
+O tamanho do bloco usa N*Pb+(N-1)*(V+Pr), portanto 24*6+23*16=512 bytes.
+
+Questao 2
+h(k)=k mod11:
+10,33,85,43,27,63,95,88,32
+modulos:10,0,8,10,5,8,7,0,10.
+Colisoes adicionais: 43,63,88,32 =4.
+
+Questao 3
+Arvore B de grau3 tem no interno no maximo2 chaves. Altura3 exige:
+nivel1 raiz com1 chave,
+nivel2 pelo menos2 nos,
+nivel3 pelo menos2 filhos por no do nivel2.
+Minimo de chaves para altura3 com cada no nao raiz minimo1 chave:
+raiz2? Em arvore B normal grau3: raiz minimo1, intermediarios minimo1, folhas minimo1.
+Total minimo para altura3: raiz1 + 2 nos nivel2 +4 folhas =7 chaves.

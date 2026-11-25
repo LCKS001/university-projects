@@ -1,0 +1,30 @@
+---PAGE 1---
+ORGANIZAC¸ ˜AO DE ESTRUTURAS DE ARQUIVOS
+P2 - 2024.1 - BCC - PROF. RENATO MAURO
+Nome: Nº:
+1. Considere a ´arvore B da figura abaixo, de grau 5. Fa¸ca o que se pede nos itens de forma
+independente, ou seja, use sempre a ´arvore original. Redesenhe em cada um dos itens.
+??
+10,20,30 40,50,60 60,80 90,100,110,120
+(a) Indique valores para ocuparem a raiz da ´arvore. (0,5 ponto)
+(b) Insira a chave 130. Redesenhe a ´arvore. (0,5 ponto)
+(c) Remova a chave 80. Redesenhe a ´arvore. (0,5 ponto)
+2. As folhas de uma ´arvore B usada como ´ındice para uma grande tabela de um banco de dados
+est˜ao no n´ıvel 7. Sabendo que a raiz est´a no n´ıvel 0, se uma ´unica chave for inserida nesta
+´arvore j´a preenchida, qual ´e o n´umero m´aximo de novas p´aginas que podem ser criadas neste
+processo? Justifique, explicando o m´etodo de inser¸c˜ao em uma ´arvore B. (1,0 ponto)
+3. Considere um arquivo de Hash j´a criado, onde cada registro possui 1 chave, 1 ponteiro para
+o arquivo de dados e 1 ponteiro para a pr´oxima chave, conforme a primeira implementa¸c˜ao
+feita em aula. As chaves que colidiram est˜ao na ´area de colis˜ao, ap´os a tabela e dentro
+do mesmo arquivo. Ap´os criada a tabela, nenhuma nova chave ser´a inserida. Projete um
+algoritmo para compactar o arquivo, trazendo as chaves que colidiram para dentro da pr´opria
+tabela, ocupando as posi¸c˜oes vazias. Dica: procure o primeiro espa¸co vazio. Leia as entradas
+na ´area de colis˜ao sequencialmente. Aplique a fun¸c˜ao de hash em cada uma das chaves.
+Verifique o registro que est´a na cabe¸ca da lista encadeada, na tabela principal. Reorganize
+o encadeamento ajustando os ponteiros devidamente. A lista encadeada ser´a reconstru´ıda.
+Apresente um esbo¸co de um algoritmo do m´etodo proposto. (1,5 pontos)
+4. Em uma tabela de Hash com 11 entradas e com espa¸co suficiente na mesma estrutura para
+tratar as colis˜oes por encadeamento externo, insira as seguintes chaves nesta ordem: 10, 27,
+34, 41, 67, 86, 17, 38, 72, 49. Apresente a tabela de Hash. Quantas colis˜oes ocorreram? Qual
+´e o tamanho da maior lista encadeada? (2,0 pontos)
+BOA PROVA!!

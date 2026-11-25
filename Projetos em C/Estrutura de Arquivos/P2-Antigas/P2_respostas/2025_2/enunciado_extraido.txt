@@ -1,0 +1,62 @@
+---PAGE 1---
+ORGANIZAC¸ ˜AO DE ESTRUTURAS DE ARQUIVOS
+Prof. Renato Mauro
+PROVA 2 - 2025.2 - 11/12/2025
+Nome: N´umero:
+1. (3,0 pontos) Alguns Sistemas Gerenciadores de Banco de Dados (SGBDs) permitem escolher a es-
+trutura de dados utilizada para implementar um ´ındice, sendo as alternativas mais comuns a ´arvore
+B/B+ e a tabela Hash.
+(a) Explique as principais diferen¸cas entre essas duas estruturas de dados considerando:
+• (0,5) organiza¸c˜ao interna;
+• (0,5) forma de acesso aos registros;
+• (0,5) manuten¸c˜ao da ordena¸c˜ao das chaves;
+• (0,5) custo das opera¸c˜oes de busca, inser¸c˜ao e remo¸c˜ao.
+(b) (1,0) Indique tipos de consultas que se beneficiam mais do uso de ´ındices baseados em ´arvore
+B/B+ e tipos de consultas que tˆem melhor desempenho quando se usa ´ındices Hash. Justifique
+suas respostas com exemplos de consultas t´ıpicas para cada caso.
+2. (2,0 pontos) Vocˆe deve construir manualmente uma tabela de hash com 11 posi¸c˜oes iniciais (´ındices
+de 0 a 10), onde as colis˜oes s˜ao tratadas por encadeamento externo armazenado na pr´opria
+tabela. Cada entrada da tabela possui 3 colunas: Chave, Valor e Pr´oximo. A coluna pr´oximo
+armazena o ´ındice do pr´oximo elemento da lista encadeada (ou 0 se for o fim da lista). Use como
+fun¸c˜ao de Hash h(k) = k mod 11. Sequˆencia de inser¸c˜ao (nesta ordem):
+25, 32, 12, 34, 63, 65, 80, 76
+3. (3,0 pontos) Considere uma ´arvore B utilizada como estrutura de ´ındice em um SGBD. Quando uma
+p´agina (n´o) atinge sua capacidade m´axima e torna-se necess´aria a inser¸c˜ao de uma nova chave nessa
+p´agina, o sistema executa a opera¸c˜ao denominada split, respons´avel pela divis˜ao do n´o em duas p´aginas.
+(a) (1,0) Explique, com suas palavras, como ocorre o processo de split em uma p´agina folha de uma
+´arvore B. Em sua resposta, descreva:
+• por que o split ´e necess´ario;
+• como as chaves s˜ao redistribu´ıdas entre a p´agina original e a nova p´agina criada;
+• qual ´e o papel da chave que ser´a promovida ao n´o pai.
+(b) (2,0) Suponha que exista uma p´agina cheia p1 e que o SGBD crie uma nova p´agina vazia p2.
+Ambas s˜ao p´aginas folha (portanto, todos os seus ponteiros de filhos devem ser nulos). Elabore
+um pseudoc´odigo que mostre como redistribuir as chaves entre p1 e p2 durante o processo de
+split. Assuma que a nova chave a ser inserida ´e maior que a ´ultima chave da p´agina. Assuma
+tamb´em que a p´agina da ´arvore B possui a seguinte estrutura:
+---PAGE 2---
+struct Pagina {
+int qt;
+int chaves[N];
+int valores[N];
+int filhos[N+1];
+};
+Os ponteiros de filhos s˜ao inteiros e, no caso de ponteiro nulo, devem ser representados pelo valor
+0. Al´em disso, considere que o split ser´a implementado por meio da seguinte fun¸c˜ao:
+void split( Pagina* p1, Pagina* p2, int novaChave, int novoValor,
+int* chave, int* valor) {
+}
+onde:
+• p1 ´e a p´agina saturada (antes do split);
+• p2 ´e a nova p´agina, inicialmente vazia e j´a alocada;
+• novaChave e novoValor s˜ao os valores que devem ser inseridos na ´arvore e garantidamente
+maiores que o ´ultimo elemento da p´agina p1.
+• chave e valor s˜ao ponteiros para vari´aveis inteiras onde devem ser armazenados, respectiva-
+mente, a chave e o valor que ser˜ao promovidos ao n´o pai durante o split.
+4. (2,0 pontos) Considerando a estrutura de p´agina de ´arvore B definida na quest˜ao anterior. Admita
+que cada int ocupa 4 bytes.
+(a) (1,0) Defina um valor adequado para N de forma que o tamanho total de uma p´agina seja com-
+pat´ıvel com um bloco de 1024 bytes.
+(b) (1,0) Suponha agora que a ´arvore B esteja cheia e tenha altura igual a 3 (isto ´e, a raiz no n´ıvel 1
+e as folhas no n´ıvel 3). Com base no valor de N encontrado no item anterior, estime a quantidade
+m´axima de chaves que essa ´arvore pode armazenar. Explique brevemente seu racioc´ınio.
+BOA PROVA!

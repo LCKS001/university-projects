@@ -1,0 +1,34 @@
+Questao 1
+Sequencia: 20,40,10,50,30,60,70,80,90,25,35,45,55,65,75,85,95.
+Apenas os estados apos splits sao listados:
+- depois de 20,40,10: [10,20,40]
+- ao inserir 50: [10,20,40,50], depois inserir 30 divide [10,20,30,40,50] em
+  [10,20,30] e [40,50], promove 30.
+- arvores posteriores crescem por divisao dos blocos cheios. Ao atingir altura3,
+um exemplo valido para a arvore resultante e:
+raiz: [30,45,60,75,90]
+filhos:
+[10,20],[35,40],[50,55],[65,70],[80,85],[95]
+Dependendo da ordem exata de propagacoes, os medianas podem variar; a propriedade
+central e no interno com entre 2 e4 chaves e folhas no mesmo nivel.
+
+Questao 2
+h(k)=k mod11. Todas as chaves fornecidas sao congruentes 4:
+15,26,37,48,59,70,81,92,103,114.
+Inserindo no inicio da lista:
+114 -> 103 -> 92 -> 81 -> 70 -> 59 -> 48 -> 37 -> 26 -> 15 -> 0
+As demais posicoes ficam vazias.
+
+Questao 3
+Percorra todas as posicoes primarias. Em cada posicao percorra o encadeamento contando
+registros e guarde maiorContagem e melhorIndice. Nao e necessario contar o ponteiro
+inicial duas vezes.
+
+Questao 4
+(b) Apenas nas folhas.
+Questao 5
+(a) Melhor eficiencia na busca sequencial; folhas encadeadas permitem percorrer em ordem.
+Questao 6
+(a) Armazenamento das chaves nos nos internos e nao exclusiva? Em arvores B as chaves
+tambem podem existir nos internos com dados associados; em B+ internos tem separadores.
+A alternativa mais correta da listada e (a).

@@ -1,0 +1,38 @@
+---PAGE 1---
+ORGANIZAC¸ ˜AO DE ESTRUTURAS DE
+ARQUIVOS
+Prof. Renato Mauro
+LISTA AVALIATIVA - 2023.2
+1. O arquivo “sinasc.csv”, usado em nosso ´ultimo trabalho, possui em torno de 22 milh˜oes de registros.
+Este arquivo est´a organizado fisicamente, ordenado pelo c´odigo do munic´ıpio. O c´odigo do munic´ıpio ´e
+chamado nesse contexto de campo de agrupamento (clustering). Uma consulta t´ıpica envolve a sele¸c˜ao
+de registros de um determinado munic´ıpio. Por exemplo: Qual ´e quantidade de nascimentos no munic´ıpio
+X com peso abaixo de 2500g? Uma forma de se fazer uma busca eficiente (j´a que est´a ordenado por
+munic´ıpio) ´e a execu¸c˜ao do algoritmo de busca bin´aria. Outra solu¸c˜ao ´e a cria¸c˜ao de um ´ındice clustering
+sobre esse atributo.
+Para cria¸c˜ao do ´ındice de clustering, basta criar um arquivo contendo o c´odigo do munic´ıpio (n´umero
+inteiro de 32 bits sem sinal unsigned int) e a posi¸c˜ao no arquivo de dados (csv original) onde ocorre
+o primeiro registro com aquele valor (tamb´em um inteiro de 32 bits sem sinal). Observe que n˜ao h´a
+necessidade de ordenar, pois o arquivo original j´a est´a ordenado. O arquivo deve ser bin´ario e n˜ao texto.
+(a) Esboce um algoritmo que crie um arquivo de ´ındice clustering sobre o arquivo do SINASC. Suponha
+que as fun¸c˜oes abaixo estejam criadas, ou seja, vocˆe n˜ao precisa fazer parser do csv. Defina a
+estrutura para o ´ındice.
+(b) Estime o tamanho do ´ındice, sabendo que s˜ao em torno de 5700 munic´ıpios no Brasil.
+Registro* leRegistro(FILE* f) - L^e o pr´oximo registro do arquivo. Retorna NULL em EOF.
+unsigned int getCodMunicipio(Registro* r) - Retorna o inteiro sem sinal contendo o
+c´odigo do munic´ıpio do registro apontado por r.
+2. Suponha que o campo de busca de uma ´arvore B seja de tamanho V = 9bytes, o tamanho do bloco
+de disco seja B = 512bytes, um ponteiro de registro (para o arquivo de dados) seja Pr = 7bytes, e um
+ponteiro de bloco (para as outras p´aginas da ´arvore B) seja Pb = 6 bytes. Cada n´o da ´arvore B possui
+no m´aximo n ponteiros de ´arvore, n − 1 ponteiros de dados e n − 1 valores de campos-chave de busca
+que devem caber em um ´unico bloco de disco.
+(a) Estime o valor de n.
+(b) Quantas chaves cabem no m´aximo e no m´ınimo em um bloco n˜ao raiz?
+(c) Suponha que em uma determinada ´arvore B, sabe-se que todos os n´os tˆem em m´edia 70% de
+ocupa¸c˜ao. Indique no terceiro n´ıvel da ´arvore a quantidade de chaves armazenadas.
+3. Responda objetivamente:
+(a) Em uma tabela de hash onde h(chave) = chave%11, ao inserir as chaves 10, 33, 85, 43, 27, 63, 95,
+88 e 32, quantas colis˜oes ocorrem?
+(b) Quantas chaves precisam ser inseridas (no m´ınimo) em uma ´arvore B de grau 3 para atingir altura
+3?
+BONS ESTUDOS!!
